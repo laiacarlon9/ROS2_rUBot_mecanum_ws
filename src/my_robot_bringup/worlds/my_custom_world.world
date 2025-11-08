@@ -1,0 +1,136 @@
+<sdf version='1.6'>
+  <world name='custom_world'>
+    <!-- Il·luminació -->
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Terra -->
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Rubot -->
+    <include>
+      <uri>model://rubot_custom</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <!-- Parets personalitzades formant un petit recinte -->
+    <model name='wall_north'>
+      <pose>0 2 0 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box><size>4 0.1 0.5</size></box>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box><size>4 0.1 0.5</size></box>
+          </geometry>
+          <material>
+            <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Wood</name></script>
+          </material>
+        </visual>
+      </link>
+      <static>1</static>
+    </model>
+
+    <model name='wall_south'>
+      <pose>0 -2 0 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box><size>4 0.1 0.5</size></box>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box><size>4 0.1 0.5</size></box>
+          </geometry>
+          <material>
+            <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Wood</name></script>
+          </material>
+        </visual>
+      </link>
+      <static>1</static>
+    </model>
+
+    <model name='wall_east'>
+      <pose>2 0 0 0 0 1.5708</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box><size>4 0.1 0.5</size></box>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box><size>4 0.1 0.5</size></box>
+          </geometry>
+          <material>
+            <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Wood</name></script>
+          </material>
+        </visual>
+      </link>
+      <static>1</static>
+    </model>
+
+    <model name='wall_west'>
+      <pose>-2 0 0 0 0 1.5708</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box><size>4 0.1 0.5</size></box>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box><size>4 0.1 0.5</size></box>
+          </geometry>
+          <material>
+            <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Wood</name></script>
+          </material>
+        </visual>
+      </link>
+      <static>1</static>
+    </model>
+
+    <!-- Gravetat i física -->
+    <gravity>0 0 -9.8</gravity>
+    <physics name='default_physics' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+  </world>
+</sdf>
