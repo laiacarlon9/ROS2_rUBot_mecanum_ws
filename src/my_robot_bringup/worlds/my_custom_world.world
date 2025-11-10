@@ -39,12 +39,11 @@
     </model>
 
     <!-- Rubot -->
-    <!--
     <include>
-      <uri>model://rubot_custom</uri>
+      <uri>model://rubot</uri>
       <pose>0 0 0 0 0 0</pose>
     </include>
-    -->
+    
 
 
     <!-- Parets personalitzades formant un petit recinte -->
