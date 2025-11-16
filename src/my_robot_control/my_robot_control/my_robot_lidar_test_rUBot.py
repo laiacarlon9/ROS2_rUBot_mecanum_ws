@@ -6,7 +6,7 @@ from sensor_msgs.msg import LaserScan
 class LidarTest(Node):
 
     def __init__(self):
-        super().__init__('my_robot_lidar_test_rUBot_node')
+        super().__init__('my_robot_lidar_test_rUBot')
 
         self.subscription = self.create_subscription(
             LaserScan,
